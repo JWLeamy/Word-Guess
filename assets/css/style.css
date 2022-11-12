@@ -1,0 +1,85 @@
+:root {
+    --boxradius: 15px;
+    --colorone: midnightblue;
+    --border: 5px solid grey;
+    --colortwo: tan;
+}
+
+body {
+    background-image: linear-gradient(white, midnightblue) ;
+    background-repeat: no-repeat;
+}
+header {
+    background-color: var(--colorone);
+}
+
+header h1 {
+    padding-top: 30px;
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+header button {
+   margin-left: 46%;
+   margin-bottom: 3%;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+}
+
+.leftbox {
+    display: flex;
+    border: var(--border);
+    border-radius: var(--boxradius);
+    width: 40%;
+    height: 250px;
+    align-items: center;
+    justify-content: center;
+    margin: 60px 20px 160px;
+    background-color: var(--colortwo);
+}
+
+.rightbox {
+    display: block;
+    border: var(--border);
+    border-radius: var(--boxradius);
+    width: 40%;
+    height: 250px;
+    margin: 60px 20px 160px;
+    background-color: var(--colortwo);
+}
+
+.trackrecord {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 20px 10px;
+}
+
+.trackrecord button {
+    height: 30px;
+    margin-top: 20px;
+}
+
+.timetext {
+    border:var(--border);
+    border-radius: 25px;
+    margin: 25px 20px 10px;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--colorone);
+    color: white;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    background-color: var(--colortwo);
+    border-radius: var(--boxradius);
+    border: var(--border);
+}
+

@@ -19,6 +19,8 @@ What to use in content:
 - need function to set losses
 - need function to grab wins
 - need function to grab losses
+
+- remember to use text.content
 */
 var timer = document.getElementById("#timer")
 
@@ -41,6 +43,8 @@ function setTime() {
         sendMessage();
       }
   
-    }, 1000);}
+    }, 1000);
+}
 
-    setTime()
+
+setTime()
