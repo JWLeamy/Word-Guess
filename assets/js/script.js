@@ -60,14 +60,21 @@ var wordlist = ["timber", "Oatmilk", "Randomize", "Avoid", "Dominant", "Media", 
 var randomword = wordlist[randomchoice(wordlist.length)]
 var splitword = randomword.split("")
 var newword = document.getElementById("newword")
-var underscore = "_  "
+
 
 
 function rendergame() {
+    underscore = " _ "
     randomword = wordlist[randomchoice(wordlist.length)]
     splitword = randomword.split("")
-    newword.textContent = underscore.repeat(splitword.length)
 
+    underarray = []
+    
+    while (underarray.length < splitword.length) {
+        underarray.push(underscore)
+    }
+
+    newword.textContent = underarray
 }
 
 startbutton.addEventListener("click", rendergame)
@@ -79,5 +86,9 @@ startbutton.addEventListener("click", rendergame)
 - retrieve a random word using math random
 - split the string by using split function
 - match each letter with 
+- make an array of underscores
+- match the event.keypress with the index of 
+
+IF keydown is included within the array, reveal that specific index 
 */
 //Use key down event to reveal correct letters
