@@ -58,6 +58,21 @@ startbutton.addEventListener("click", setTime);
 //WORD GAME FUNCTION ----------------------------------------------------------
 var wordlist = ["timber", "Oatmilk", "Randomize", "Avoid", "Dominant", "Media", "Terrible", "Sturdy", "Ripple", "Destiny", "Ordinance", "Budlight", "Vodka", "Foolish"]
 var randomword = wordlist[randomchoice(wordlist.length)]
+var splitword = randomword.split("")
+var newword = document.getElementById("newword")
+var underscore = "_  "
+
+
+function rendergame() {
+    randomword = wordlist[randomchoice(wordlist.length)]
+    splitword = randomword.split("")
+    newword.textContent = underscore.repeat(splitword.length)
+
+}
+
+startbutton.addEventListener("click", rendergame)
+
+
 
 /*
 - Make an array filled with a bunch of random words
