@@ -22,29 +22,34 @@ What to use in content:
 
 - remember to use text.content
 */
-var timer = document.getElementById("#timer")
 
 
 
 
 
 //INTERVAL FUNCTION
+var timer = document.querySelector(".timetext")
 var secondsLeft = 10
+var startbutton = document.getElementById("startbutton")
 
 function setTime() {
-    // Sets interval in variable
+    var secondsLeft = 10
     var timerInterval = setInterval(function() {
       secondsLeft--;
       timer.textContent = secondsLeft + " seconds left to solve the word!"
-      if(secondsLeft === 0) {
-        // Stops execution of action at set interval
+      
+      if (secondsLeft === 1) {
+        timer.textContent = secondsLeft + " second left to solve the word!"
+      }
+      if (secondsLeft === 0) {
+        // Stops execution 
         clearInterval(timerInterval);
-        // Calls function to create and append image
-        sendMessage();
+        timer.textContent = "You Lost!"
       }
   
     }, 1000);
 }
 
+startbutton.addEventListener("click", setTime);
 
-setTime()
+//End OF INTERVAL FUNCTION
