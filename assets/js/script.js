@@ -23,13 +23,15 @@ What to use in content:
 - remember to use text.content
 */
 
+//RANDOM SELECTOR FUNCTION ----------------------------------------------------------
+function randomchoice(max) {
+    return Math.floor(Math.random()*max);
+  }
+//END OF RANDOM SELECTOR FUNCTION ----------------------------------------------------------
 
+//INTERVAL FUNCTION ----------------------------------------------------------
 
-
-
-//INTERVAL FUNCTION
 var timer = document.querySelector(".timetext")
-var secondsLeft = 10
 var startbutton = document.getElementById("startbutton")
 
 function setTime() {
@@ -51,5 +53,16 @@ function setTime() {
 }
 
 startbutton.addEventListener("click", setTime);
+//End OF INTERVAL FUNCTION ----------------------------------------------------------
 
-//End OF INTERVAL FUNCTION
+//WORD GAME FUNCTION ----------------------------------------------------------
+var wordlist = ["timber", "Oatmilk", "Randomize", "Avoid", "Dominant", "Media", "Terrible", "Sturdy", "Ripple", "Destiny", "Ordinance", "Budlight", "Vodka", "Foolish"]
+var randomword = wordlist[randomchoice(wordlist.length)]
+
+/*
+- Make an array filled with a bunch of random words
+- retrieve a random word using math random
+- split the string by using split function
+- match each letter with 
+*/
+//Use key down event to reveal correct letters
