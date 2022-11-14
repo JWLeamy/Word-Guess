@@ -23,13 +23,15 @@ What to use in content:
 - remember to use text.content
 */
 
-//RANDOM SELECTOR FUNCTION ----------------------------------------------------------
+//RANDOM SELECTOR FUNCTION -------------------------------------------------------------------------------------------------------------
+
 function randomchoice(max) {
     return Math.floor(Math.random()*max);
   }
-//END OF RANDOM SELECTOR FUNCTION ----------------------------------------------------------
 
-//INTERVAL FUNCTION ----------------------------------------------------------
+//END OF RANDOM SELECTOR FUNCTION ------------------------------------------------------------------------------------------------------
+
+//Start INTERVAL FUNCTION --------------------------------------------------------------------------------------------------------------------
 
 var timer = document.querySelector(".timetext")
 var startbutton = document.getElementById("startbutton")
@@ -53,14 +55,14 @@ function setTime() {
 }
 
 startbutton.addEventListener("click", setTime);
-//End OF INTERVAL FUNCTION ----------------------------------------------------------
 
-//WORD GAME FUNCTION ----------------------------------------------------------
-var wordlist = ["timber", "Oatmilk", "Randomize", "Avoid", "Dominant", "Media", "Terrible", "Sturdy", "Ripple", "Destiny", "Ordinance", "Budlight", "Vodka", "Foolish"]
+//End OF INTERVAL FUNCTION ---------------------------------------------------------------------------------------------------------------
+
+//Start Generate Random Word FUNCTION -----------------------------------------------------------------------------------------------------------
+var wordlist = ["timber", "oatmilk", "randomize", "avoid", "dominant", "media", "terrible", "sturdy", "ripple", "destiny", "ordinance", "budlight", "vodka", "foolish"]
 var randomword = wordlist[randomchoice(wordlist.length)]
 var splitword = randomword.split("")
 var newword = document.getElementById("newword")
-
 
 
 function rendergame() {
@@ -74,12 +76,35 @@ function rendergame() {
         underarray.push(underscore)
     }
 
-    newword.textContent = underarray
+    newword.textContent = underarray.join(" ")
+
+    startbutton.addEventListener("keydown", checkletter())
+
 }
 
-startbutton.addEventListener("click", rendergame)
+startbutton.addEventListener("click", rendergame);
+
+//End random word function``--------------------------------------------------------------------------------------------------------------------
+
+//Start of Checkletter function (for the game) --------------------------------------------------------------------------------------------------------------------
+
+function checkletter (event) {
+  var letter = event.key.toLowerCase();
+  var letterinword = false;
+
+  for(var i = 0; i < wordlist.length; i++) {
+    if (splitword[i] === letter) {
+      letterinword === true;
+    }
+    if (letterinword) {
+      underarray[i] === letter;
+    }
+  }
+}
 
 
+
+// End of Chekleter function --------------------------------------------------------------------------------------------------------------------
 
 /*
 - Make an array filled with a bunch of random words
