@@ -35,6 +35,8 @@ function randomchoice(max) {
 
 var timer = document.querySelector(".timetext")
 var startbutton = document.getElementById("startbutton")
+var secondsLeft
+var underarray
 
 function setTime() {
     var secondsLeft = 10
@@ -52,59 +54,107 @@ function setTime() {
       }
   
     }, 1000);
-}
 
-startbutton.addEventListener("click", setTime);
+}
 
 //End OF INTERVAL FUNCTION ---------------------------------------------------------------------------------------------------------------
 
 //Start Generate Random Word FUNCTION -----------------------------------------------------------------------------------------------------------
 var wordlist = ["timber", "oatmilk", "randomize", "avoid", "dominant", "media", "terrible", "sturdy", "ripple", "destiny", "ordinance", "budlight", "vodka", "foolish"]
-var randomword = wordlist[randomchoice(wordlist.length)]
-var splitword = randomword.split("")
 var newword = document.getElementById("newword")
 
 
 function rendergame() {
-    underscore = " _ "
-    randomword = wordlist[randomchoice(wordlist.length)]
-    splitword = randomword.split("")
+    var underscore = " _ "
+    var randomword = wordlist[randomchoice(wordlist.length)]
+    var splitword = randomword.split("")
 
-    underarray = []
+    var underarray = []
     
     while (underarray.length < splitword.length) {
         underarray.push(underscore)
     }
 
-    newword.textContent = underarray.join(" ")
+    newword.textContent = underarray.join(" ");
 
-    startbutton.addEventListener("keydown", checkletter())
+
+
+    document.addEventListener("keydown", function (event) {
+      var letterinword = false;
+      var key = event.key.toLowerCase();
+
+      console.log(splitword)
+
+    
+      for(var i = 0; i < splitword.length; i++) {
+        if (splitword[i] == key) {
+          underarray[i] = key;
+          newword.textContent = underarray.join(" ");
+        } 
+      }}
+      )
+    
 
 }
 
+
+
 startbutton.addEventListener("click", rendergame);
 
+/*document.addEventListener("keydown", function (event) {
+  var letterinword = false;
+  var key = event.key.toLowerCase()
+
+  for(var i = 0; i < wordlist.length; i++) {
+    if (splitword[i] === key) {
+      letterinword === true;
+    } 
+  }
+    if (letterinword) {
+      for (var i = 0 ; i < wordlist.length; i++){
+        if (splitword[i] === key) {
+          underarray[i] === key;
+        newword.textContent = underarray.join(" ");
+        }
+    }
+  }})
+  */
 //End random word function``--------------------------------------------------------------------------------------------------------------------
 
 //Start of Checkletter function (for the game) --------------------------------------------------------------------------------------------------------------------
 
-function checkletter (event) {
-  var letter = event.key.toLowerCase();
+function checkletter (letter) {
   var letterinword = false;
 
   for(var i = 0; i < wordlist.length; i++) {
     if (splitword[i] === letter) {
       letterinword === true;
     }
+  }
     if (letterinword) {
-      underarray[i] === letter;
+      for (var i = 0 ; i < wordlist.length; i++){
+        if (splitword[i] === letter) {
+          underarray[i] === letter;
+        }
+        newword.textContent = underarray.join(" ")
     }
+
   }
 }
 
-
-
 // End of Chekleter function --------------------------------------------------------------------------------------------------------------------
+//Start of Event --------------------------------------------------------------------------------------------------------------------
+/*document.addEventListener("keydown", function (event) {
+ 
+  var key = event.key.toLowerCase();
+  var alphachar = "abcdefghijklmnopqrstuvwxyz0123456789 ".split(" ");
+
+  if (alphachar.includes(key)) {
+    checkletter(key)
+  }
+})*/
+
+//End of Event --------------------------------------------------------------------------------------------------------------------
 
 /*
 - Make an array filled with a bunch of random words
