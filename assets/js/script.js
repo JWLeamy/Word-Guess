@@ -93,32 +93,16 @@ function rendergame() {
         } 
       }}
       )
-    
+}
 
+function playgame () {
+  setTime();
+  rendergame()
 }
 
 
+startbutton.addEventListener("click", playgame);
 
-startbutton.addEventListener("click", rendergame);
-
-/*document.addEventListener("keydown", function (event) {
-  var letterinword = false;
-  var key = event.key.toLowerCase()
-
-  for(var i = 0; i < wordlist.length; i++) {
-    if (splitword[i] === key) {
-      letterinword === true;
-    } 
-  }
-    if (letterinword) {
-      for (var i = 0 ; i < wordlist.length; i++){
-        if (splitword[i] === key) {
-          underarray[i] === key;
-        newword.textContent = underarray.join(" ");
-        }
-    }
-  }})
-  */
 //End random word function``--------------------------------------------------------------------------------------------------------------------
 
 //Start of Checkletter function (for the game) --------------------------------------------------------------------------------------------------------------------
